@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+
+using Studentdatabase_management_system.Data;
 
 namespace Studentdatabase_management_system
 {
@@ -23,7 +26,10 @@ namespace Studentdatabase_management_system
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<StudentDbContext>(options =>
+      options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

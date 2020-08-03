@@ -1,0 +1,61 @@
+﻿
+@*@model List<Studentdatabase_management_system.Models.Student>*@
+
+    <div class="text-center">
+        <a asp-controller="Admin" asp-action="AddStudent">Add student</a>
+        <a asp-controller="Admin" asp-action="AddBatch">Add Batch</a>
+
+    </div>
+
+@if (ViewBag.Students.Count == 0)
+{
+
+    <p>No Students added</p>
+}
+else
+{
+<table class="table">
+        <tr>
+            <th>
+                Students Name
+
+            </th>
+        </tr>
+        <tr>
+
+            @foreach (Student student in ViewBag.Students)
+            {
+                <td><a asp-controller="Admin" asp-action="Details">@student.Name</a></td>
+            }
+
+        </tr>
+
+    </table>
+}
+
+    @if (ViewBag.Batch.Count == 0)
+    {
+        <p>No Batches available</p>
+    }
+    else
+    {
+<table class="table">
+    <tr>
+        <th>
+            Batch Name
+
+        </th>
+    </tr>
+    <tr>
+
+        @foreach (Batch batch in ViewBag.Batch)
+        {
+            <td><a asp-controller="Admin" asp-action="Details">@batch.Name</a></td>
+        }
+
+    </tr>
+
+</table>
+
+    }
+

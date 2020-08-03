@@ -1,0 +1,33 @@
+﻿@model Studentdatabase_management_system.ViewModels.AddStudentViewModel
+<h1>Add New Student</h1>
+
+<form asp-controller="Admin" asp-action="AddStudent" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Student Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+
+    @if (Model.Batch != null)
+    {
+        <div class="form-group">
+
+
+            <label asp-for="BatchId">Batch</label>
+
+            @Html.DropDownList("BatchId", Model.Batch, "-- Select Batch --", new { @class = "form-group" })
+        </div>
+
+    }
+
+
+    else
+    {
+        <h1>No Batch</h1>
+    }
+
+
+
+    <input type="submit" value="Submit" />
+</form>
