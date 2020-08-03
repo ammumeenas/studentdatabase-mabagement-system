@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -56,5 +57,12 @@ namespace Studentdatabase_management_system.Controllers
                 return View("AddStudent", addStudentViewModel);
             }
         }
+public IActionResult StudentDetails(int Id)
+        {
+            Student student = context.Students.Include(j => j.Batch).Single(j => j.Id==Id);
+            AddStudentDetailViewModel addstudentdetailviewmodel = new AddStudentDetailViewModel(student);
+            return View(addstudentdetailviewmodel);
+        }
+
     }
 }

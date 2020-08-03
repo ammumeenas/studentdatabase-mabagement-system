@@ -1,0 +1,22 @@
+﻿@model Studentdatabase_management_system.ViewModels.AddBatchViewModel
+<h1>Add New Batch</h1>
+<form asp-controller="Batch" asp-action="AddBatch" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Batch Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Announcement">Announcements</label>
+        <input asp-for="Announcement" />
+        <span asp-validation-for="Announcement"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ClassSchedule">ClassSchedule</label>
+        <input asp-for="ClassSchedule" />
+        <span asp-validation-for="ClassSchedule"></span>
+    </div>
+
+    <input type="submit" value="Submit" />
+</form>
+

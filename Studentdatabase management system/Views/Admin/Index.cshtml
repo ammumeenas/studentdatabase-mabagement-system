@@ -3,7 +3,7 @@
 
     <div class="text-center">
         <a asp-controller="Admin" asp-action="AddStudent">Add student</a>
-        <a asp-controller="Admin" asp-action="AddBatch">Add Batch</a>
+        <a asp-controller="Batch" asp-action="AddBatch">Add Batch</a>
 
     </div>
 
@@ -25,7 +25,7 @@ else
 
             @foreach (Student student in ViewBag.Students)
             {
-                <td><a asp-controller="Admin" asp-action="Details">@student.Name</a></td>
+                <td><a asp-controller="Admin" asp-action="StudentDetails" asp-route-id="@student.Id">@student.Name</a></td>
             }
 
         </tr>
@@ -50,7 +50,7 @@ else
 
         @foreach (Batch batch in ViewBag.Batch)
         {
-            <td><a asp-controller="Admin" asp-action="Details">@batch.Name</a></td>
+            <td><a asp-controller="Batch" asp-action="BatchDetails" asp-route-id="@batch.BatchId">@batch.Name</a></td>
         }
 
     </tr>
