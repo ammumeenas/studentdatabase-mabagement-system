@@ -26,6 +26,8 @@ else
             @foreach (Student student in ViewBag.Students)
             {
                 <td><a asp-controller="Admin" asp-action="StudentDetails" asp-route-id="@student.Id">@student.Name</a></td>
+                <td> <a asp-controller="Admin" asp-action="edit" asp-route-id="@student.Id"
+   class="btn btn-primary m-1">Edit</a></td>
             }
 
         </tr>

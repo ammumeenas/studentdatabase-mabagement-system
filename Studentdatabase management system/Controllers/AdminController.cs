@@ -63,6 +63,36 @@ public IActionResult StudentDetails(int Id)
             AddStudentDetailViewModel addstudentdetailviewmodel = new AddStudentDetailViewModel(student);
             return View(addstudentdetailviewmodel);
         }
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            Student student=context.Students.Include(j => j.Batch).Single(j => j.Id == Id);
+            List<Batch> Batches = context.Batches.ToList();
+            EditViewModel editViewModel = new EditViewModel(student,Batches);
+            return View(editViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditViewModel editViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                Student student=context.Students.Include(j => j.Batch).Single(j => j.Id == editViewModel.Id);
+                Batch batch = context.Batches.Find(editViewModel.BatchId);
+                student.Id = editViewModel.Id;
+                student.Name = editViewModel.Name;
+                student.BatchId = editViewModel.BatchId;
+                student.Batch = editViewModel.Selectedbatch;
+                context.Students.Update(student);
+                context.SaveChanges();
+                return Redirect("/Admin");
+
+            }
+            else
+            {
+                return View("Edit", editViewModel);
+            }
+        }
 
     }
 }
