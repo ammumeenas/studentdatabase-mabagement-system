@@ -9,23 +9,12 @@
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
-
-
         <div class="form-group">
-
-
             <label asp-for="BatchId">Batch</label>
 
-            @Html.DropDownList("BatchId", Model.Batch, Model.Selectedbatch.Name, new { @class = "form-group" })
+            @*@Html.DropDownList("BatchId", Model.Batch, Model.Selectedbatch.Name, new { @class = "form-group" })*@
+            @Html.DropDownListFor(x => x.BatchId, Model.Batch);
         </div>
-
-    
-
-
-   
-
-
-
     <input type="submit" value="Update" />
 </form>
 

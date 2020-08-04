@@ -36,8 +36,11 @@ namespace Studentdatabase_management_system.ViewModels
                 SelectListItem selectListItem = new SelectListItem()
                 {
                     Value = batch.BatchId.ToString(),
-                    Text = batch.Name
+                    Text = batch.Name,
+                    Selected = batch.BatchId == student.BatchId ? true : false
+
                 };
+
                 Batch.Add(selectListItem);
 
             }

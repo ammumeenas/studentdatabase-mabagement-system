@@ -94,5 +94,15 @@ public IActionResult StudentDetails(int Id)
             }
         }
 
+        public IActionResult Delete(int Id)
+        {
+            Student student = context.Students.Find(Id);
+
+            context.Students.Remove(student);
+            context.SaveChanges();
+            return Redirect("/Admin");
+
+        }
+
     }
 }
