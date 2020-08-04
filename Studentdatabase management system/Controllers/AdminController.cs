@@ -77,12 +77,11 @@ public IActionResult StudentDetails(int Id)
         {
             if (ModelState.IsValid)
             {
-                Student student=context.Students.Include(j => j.Batch).Single(j => j.Id == editViewModel.Id);
-                Batch batch = context.Batches.Find(editViewModel.BatchId);
-                student.Id = editViewModel.Id;
+                Student student=context.Students.Find(editViewModel.Id);
+                //Batch batch = context.Batches.Find(editViewModel.BatchId);
                 student.Name = editViewModel.Name;
                 student.BatchId = editViewModel.BatchId;
-                student.Batch = editViewModel.Selectedbatch;
+                //student.Batch = editViewModel.Selectedbatch;
                 context.Students.Update(student);
                 context.SaveChanges();
                 return Redirect("/Admin");

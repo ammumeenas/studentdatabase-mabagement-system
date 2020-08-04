@@ -66,3 +66,4 @@ C:\Users\Venkatram\OneDrive\Documents\Meena\launchcode\c#practisefolder\Main Pro
 C:\Users\Venkatram\OneDrive\Documents\Meena\launchcode\c#practisefolder\Main Project\Studentdatabase management system\Studentdatabase management system\obj\Debug\netcoreapp3.1\Razor\Views\Admin\StudentDetails.cshtml.g.cs
 C:\Users\Venkatram\OneDrive\Documents\Meena\launchcode\c#practisefolder\Main Project\Studentdatabase management system\Studentdatabase management system\obj\Debug\netcoreapp3.1\Razor\Views\Batch\BatchDetails.cshtml.g.cs
 C:\Users\Venkatram\OneDrive\Documents\Meena\launchcode\c#practisefolder\Main Project\Studentdatabase management system\Studentdatabase management system\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Edit.cshtml.g.cs
+C:\Users\Venkatram\OneDrive\Documents\Meena\launchcode\c#practisefolder\Main Project\Studentdatabase management system\Studentdatabase management system\obj\Debug\netcoreapp3.1\Razor\Views\Batch\Edit.cshtml.g.cs

@@ -3,7 +3,7 @@
 
 <form asp-controller="Admin" asp-action="Edit" method="post">
     <div class="form-group">
-        <input type="hidden" value="@Model.Id"/>
+        <input type="hidden" name="Id" value="@Model.Id"/>
         
         <label asp-for="Name">Student Name</label>
         <input asp-for="Name" />

@@ -1,0 +1,28 @@
+﻿
+@model Studentdatabase_management_system.ViewModels.EditBatchViewModel
+<h1>Edit  Batch</h1>
+
+<form asp-controller="Batch" asp-action="Edit" method="post">
+    <div class="form-group">
+        <input type="hidden" name="BatchId" value="@Model.BatchId" />
+
+        <label asp-for="Name">Batch Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+
+        <label asp-for="Announcement">Announcement</label>
+        <input asp-for="Announcement" />
+        <span asp-validation-for="Announcement"></span>
+    </div>
+    <div class="form-group">
+
+        <label asp-for="ClassSchedule">ClassSchedule</label>
+        <input asp-for="ClassSchedule" />
+        <span asp-validation-for="ClassSchedule"></span>
+    </div>
+
+    <input type="submit" value="Update" />
+</form>
+

@@ -51,6 +51,45 @@ namespace Studentdatabase_management_system.Controllers
             AddBatchDetailViewModel addbatchdetailviewmodel = new AddBatchDetailViewModel(batch);
             return View(addbatchdetailviewmodel);
         }
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            Batch batch = context.Batches.Find(Id);
+            EditBatchViewModel editBatchViewModel = new EditBatchViewModel(batch);
+            return View(editBatchViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditBatchViewModel editBatchViewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+               
+                Batch batch = context.Batches.Find(editBatchViewModel.BatchId);
+                batch.BatchId = editBatchViewModel.BatchId;
+                batch.Name = editBatchViewModel.Name;
+                batch.ClassSchedule = editBatchViewModel.ClassSchedule;
+                batch.Announcement = editBatchViewModel.Announcement;
+                context.Batches.Update(batch);
+                context.SaveChanges();
+                return Redirect("/Admin");
+
+            }
+            else
+            {
+                return View("Edit", editBatchViewModel);
+            }
+        }
+        public IActionResult Delete(int Id)
+        {
+            Batch batch = context.Batches.Find(Id);
+
+            context.Batches.Remove(batch);
+            context.SaveChanges();
+            return Redirect("/Admin");
+
+        }
     }
 
 }

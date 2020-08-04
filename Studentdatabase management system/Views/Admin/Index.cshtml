@@ -59,6 +59,14 @@ else
         @foreach (Batch batch in ViewBag.Batch)
         {
             <td><a asp-controller="Batch" asp-action="BatchDetails" asp-route-id="@batch.BatchId">@batch.Name</a></td>
+            <td>
+                <a asp-controller="Batch" asp-action="edit" asp-route-id="@batch.BatchId"
+                   class="btn btn-primary m-1">Edit</a>
+            </td>
+            <td>
+                <a asp-controller="Batch" asp-action="delete" asp-route-id="@batch.BatchId"
+                   class="btn btn-primary m-1" method="post">Delete</a>
+            </td>
         }
 
     </tr>
