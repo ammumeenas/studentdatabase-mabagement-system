@@ -11,13 +11,14 @@
 
     @if (Model.Batch != null)
     {
-        <div class="form-group">
+<div class="form-group">
 
 
-            <label asp-for="BatchId">Batch</label>
+    <label asp-for="BatchId">Batch</label>
 
-            @Html.DropDownList("BatchId", Model.Batch, "-- Select Batch --", new { @class = "form-group" })
-        </div>
+    @Html.DropDownList("BatchId", Model.Batch, "-- Select Batch --", new { @class = "form-group" })
+  
+</div>
         <div class="form-group">
 
             <a asp-controller="Batch" asp-action="AddBatch"
