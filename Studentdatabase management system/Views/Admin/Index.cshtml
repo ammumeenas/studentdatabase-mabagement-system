@@ -1,12 +1,7 @@
-﻿
-@*@model List<Studentdatabase_management_system.Models.Student>*@
+﻿@*@model List<Studentdatabase_management_system.Models.Student>*@
 
-    <div class="text-center">
-        <a asp-controller="Admin" asp-action="AddStudent">Add student</a>
-        <a asp-controller="Batch" asp-action="AddBatch">Add Batch</a>
 
-    </div>
-
+ 
 @if (ViewBag.Students.Count == 0)
 {
 
@@ -14,64 +9,96 @@
 }
 else
 {
-<table class="table">
-        <tr>
-            <th>
-                Students Name
+    <table class=" table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" width="10%">
+                    Students Name
 
-            </th>
-        </tr>
-        <tr>
+                </th>
+                <th scope="col" width="10%">
+                    Edit
+
+                </th>
+                <th scope="col" width="10%">
+                    Delete
+
+                </th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+
 
             @foreach (Student student in ViewBag.Students)
             {
-                <td><a asp-controller="Admin" asp-action="StudentDetails" asp-route-id="@student.Id">@student.Name</a></td>
-                <td>
-                    <a asp-controller="Admin" asp-action="edit" asp-route-id="@student.Id"
-                       class="btn btn-primary m-1">Edit</a>
-                </td>
-                <td>
-                    <a asp-controller="Admin" asp-action="delete" asp-route-id="@student.Id"
-                       class="btn btn-primary m-1" method="post">Delete</a>
-                </td>
+                <tr>
+                    <td><a asp-controller="Admin" asp-action="StudentDetails" asp-route-id="@student.Id">@student.Name</a></td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="edit" asp-route-id="@student.Id"
+                           class="btn btn-primary m-1">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="delete" asp-route-id="@student.Id"
+                           class="btn btn-primary m-1" method="post">Delete</a>
+                    </td>
+                </tr>
             }
 
-        </tr>
+
+        </tbody>
 
     </table>
 }
+<div class="container">
+<a asp-controller="Admin" asp-action="AddStudent"  class="btn btn-primary m-1">Add student</a></div>
 
-    @if (ViewBag.Batch.Count == 0)
-    {
-        <p>No Batches available</p>
-    }
-    else
-    {
-<table class="table">
-    <tr>
-        <th>
-            Batch Name
+@if (ViewBag.Batch.Count == 0)
+{
+    <p>No Batches available</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <tr>
+            <th scope="col" width="10%">
+                Batch Name
 
-        </th>
-    </tr>
-    <tr>
+            </th>
+            <th scope="col" width="10%">
+                Edit
+
+            </th>
+            <th scope="col" width="10%">
+                Delete
+
+            </th>
+        </tr>
+
 
         @foreach (Batch batch in ViewBag.Batch)
         {
-            <td><a asp-controller="Batch" asp-action="BatchDetails" asp-route-id="@batch.BatchId">@batch.Name</a></td>
-            <td>
-                <a asp-controller="Batch" asp-action="edit" asp-route-id="@batch.BatchId"
-                   class="btn btn-primary m-1">Edit</a>
-            </td>
-            <td>
-                <a asp-controller="Batch" asp-action="delete" asp-route-id="@batch.BatchId"
-                   class="btn btn-primary m-1" method="post">Delete</a>
-            </td>
+            <tr>
+                <td><a asp-controller="Batch" asp-action="BatchDetails" asp-route-id="@batch.BatchId">@batch.Name</a></td>
+                <td>
+                    <a asp-controller="Batch" asp-action="edit" asp-route-id="@batch.BatchId"
+                       class="btn btn-primary m-1">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Batch" asp-action="delete" asp-route-id="@batch.BatchId"
+                       class="btn btn-primary m-1" method="post">Delete</a>
+                </td>
+            </tr>
         }
 
-    </tr>
 
-</table>
 
-    }
+    </table>
+
+}
+<div class="container">
+    <a asp-controller="Batch" asp-action="AddBatch" class="btn btn-primary m-1">Add Batch</a>
+</div>
+
 

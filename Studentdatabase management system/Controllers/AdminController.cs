@@ -12,7 +12,7 @@ using Studentdatabase_management_system.ViewModels;
 
 namespace Studentdatabase_management_system.Controllers
 {
- 
+   
     public class AdminController : Controller
     {
         private StudentDbContext context;
@@ -22,7 +22,7 @@ namespace Studentdatabase_management_system.Controllers
         {
             context = DbContext;
         }
-        [Authorize(Roles ="Admin")]
+      
         public IActionResult Index()
         {
             List<Student> Students = context.Students.Include(j => j.Batch).ToList();
@@ -31,7 +31,7 @@ namespace Studentdatabase_management_system.Controllers
             ViewBag.Batch = Batches;
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult AddStudent()
         {
@@ -63,8 +63,7 @@ namespace Studentdatabase_management_system.Controllers
                 return View("AddStudent", addStudentViewModel);
             }
         }
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "User")]
+       
         public IActionResult StudentDetails(int Id)
         {
             Student student = context.Students.Include(j => j.Batch).Single(j => j.Id==Id);
@@ -80,7 +79,7 @@ namespace Studentdatabase_management_system.Controllers
             EditViewModel editViewModel = new EditViewModel(student,Batches);
             return View(editViewModel);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Edit(EditViewModel editViewModel)
         {
@@ -101,7 +100,7 @@ namespace Studentdatabase_management_system.Controllers
                 return View("Edit", editViewModel);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int Id)
         {
             Student student = context.Students.Find(Id);

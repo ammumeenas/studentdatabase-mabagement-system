@@ -18,16 +18,21 @@
 
             @Html.DropDownList("BatchId", Model.Batch, "-- Select Batch --", new { @class = "form-group" })
         </div>
+        <div class="form-group">
 
-    }
+            <a asp-controller="Batch" asp-action="AddBatch"
+               class="btn btn-primary m-1">Add Batch</a>
+            </div>
 
-
-    else
-    {
-        <h1>No Batch</h1>
-    }
-
+            }
 
 
-    <input type="submit" value="Submit" />
-</form>
+            else
+            {
+            <h1>No Batch</h1>
+            }
+
+
+
+            <input type="submit" value="Submit" />
+    </form>

@@ -1,0 +1,36 @@
+﻿@*@model List<Studentdatabase_management_system.Models.Student>*@
+@if (ViewBag.Students.Count == 0)
+{
+
+    <p>No Students added</p>
+}
+else
+{
+    <table class=" table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" width="10%">
+                    Students Name
+
+                </th>
+               
+            </tr>
+        </thead>
+
+
+        <tbody>
+
+
+            @foreach (Student student in ViewBag.Students)
+            {
+                <tr>
+                    <td><a asp-controller="Admin" asp-action="StudentDetails" asp-route-id="@student.Id">@student.Name</a></td>
+                   
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+}

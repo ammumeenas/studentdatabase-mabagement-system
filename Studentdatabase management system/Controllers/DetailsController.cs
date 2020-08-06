@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Studentdatabase_management_system.Controllers
 {
+   
     public class DetailsController : Controller
     {
 
@@ -21,13 +22,12 @@ namespace Studentdatabase_management_system.Controllers
         {
             context = DbContext;
         }
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "User")]
-        public IActionResult StudentDetails(int Id)
-        {
-            Student student = context.Students.Include(j => j.Batch).Single(j => j.Id == Id);
-            AddStudentDetailViewModel addstudentdetailviewmodel = new AddStudentDetailViewModel(student);
-            return View(addstudentdetailviewmodel);
+       
+        public IActionResult StudentDetails()
+       {
+            List<Student> Students = context.Students.Include(j => j.Batch).ToList();
+            ViewBag.Students = Students;
+            return View();
 
         }
     }
