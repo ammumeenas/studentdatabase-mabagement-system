@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Studentdatabase_management_system.Data;
@@ -10,6 +11,7 @@ using Studentdatabase_management_system.ViewModels;
 
 namespace Studentdatabase_management_system.Controllers
 {
+    [Authorize]
     public class BatchController : Controller
     {
         private StudentDbContext context;

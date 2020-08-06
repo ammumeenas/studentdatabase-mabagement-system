@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 
 using Studentdatabase_management_system.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Studentdatabase_management_system
 {
@@ -19,18 +20,18 @@ namespace Studentdatabase_management_system
         {
             Configuration = configuration;
         }
-
+            
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+
       //      services.AddDbContext<StudentDbContext>(options =>
       //options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddRazorPages();
         }
- 
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
