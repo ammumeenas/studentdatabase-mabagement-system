@@ -31,7 +31,7 @@ namespace Studentdatabase_management_system.Controllers
             ViewBag.Batch = Batches;
             return View();
         }
-        [Authorize(Roles = "Admin")]
+
         [HttpGet]
         public IActionResult AddStudent()
         {
