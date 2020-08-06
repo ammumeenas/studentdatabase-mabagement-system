@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Studentdatabase_management_system.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Studentdatabase_management_system.Data
 {
-    public class StudentDbContext: DbContext
+    public class StudentDbContext: IdentityDbContext<IdentityUser>
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Batch> Batches { get; set; }
@@ -16,5 +18,10 @@ namespace Studentdatabase_management_system.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }
